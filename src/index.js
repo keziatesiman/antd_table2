@@ -17,16 +17,21 @@ function handleChange(value) {
 
 const columns = [{
   title: 'Name',
-  dataIndex: 'name',
-  key: 'name',
+  dataIndex: 'user_name',
+  key: 'user_name',
   render: text => <a href="javascript:;">{text}</a>,
+},
+{
+  title: 'Email',
+  dataIndex: 'user_username',
+  key: 'user_username',
 }, {
-  title: 'Age',
-  dataIndex: 'age',
-  key: 'age',
+  title: 'Role',
+  dataIndex: 'user_division',
+  key: 'user_division',
   render: text => (
     <span>
-      Age {text}
+      {text}
       <br/>
     <Select
         mode="multiple"
@@ -40,9 +45,40 @@ const columns = [{
       </span>
   )
 }, {
-  title: 'Address',
-  dataIndex: 'address',
-  key: 'address',
+  title: 'Company',
+  dataIndex: 'user_current_company',
+  key: 'user_current_company',
+  render: text => (
+    <span>
+      {text}
+      <br/>
+    <Select
+        mode="multiple"
+        style={{ width: '80%' }}
+        placeholder="Please select"
+        defaultValue={['a10', 'c12']}
+        onChange={handleChange}
+      >
+        {children}
+      </Select>
+      </span>
+  )
+}, {
+  title: 'Supervisor',
+  key: 'supervisor',
+  render: () => (
+    <span>
+    <Select
+        mode="multiple"
+        style={{ width: '80%' }}
+        placeholder="Please select"
+        defaultValue={['a10', 'c12']}
+        onChange={handleChange}
+      >
+        {children}
+      </Select>
+      </span>
+  )
 }, {
   title: 'Action',
   key: 'action',
